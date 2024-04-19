@@ -110,7 +110,7 @@ function compileToJSON(str, pseudoMarkdown) {
 					')' +
 					(pseudoMarkdown[char].end
 						? '(' + pseudoMarkdown[char].end + ')'
-						: ''),
+						: '') + '(?![^\\s])',
 				'm'
 			)
 		)

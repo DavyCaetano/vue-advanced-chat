@@ -18,9 +18,11 @@ export function filterMultipleItems(
 	return items.filter(v => {
 		return props.some(prop => {
 			if (typeof v[prop] === 'string') {
-				if (startsWith)
+				if (startsWith) {
 					return formatString(v[prop]).startsWith(formatString(val))
-				return formatString(v[prop]).includes(formatString(val))
+				} else {
+					return formatString(v[prop]).includes(formatString(val))
+				}
 			} else if (typeof v[prop] === 'number') {
 				return String(v[prop]).startsWith(formatString(val))
 			} else {

@@ -7056,7 +7056,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "roomsValidation", function() { return roomsValidation; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "partcipantsValidation", function() { return partcipantsValidation; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "messagesValidation", function() { return messagesValidation; });
-/* harmony import */ var D_Zeeps_vue_advanced_chat_node_modules_babel_runtime_helpers_esm_typeof_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("53ca");
+/* harmony import */ var C_Users_davyc_OneDrive_Documentos_Workspace_vue_advanced_chat_davy_node_modules_babel_runtime_helpers_esm_typeof_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("53ca");
 /* harmony import */ var core_js_modules_es_error_cause_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("d9e2");
 /* harmony import */ var core_js_modules_es_error_cause_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_error_cause_js__WEBPACK_IMPORTED_MODULE_1__);
 
@@ -7078,7 +7078,7 @@ function roomsValidation(obj) {
       if (prop.type[0] === 'array' && Array.isArray(obj[prop.key])) {
         validType = true;
       } else if (prop.type.find(function (t) {
-        return t === Object(D_Zeeps_vue_advanced_chat_node_modules_babel_runtime_helpers_esm_typeof_js__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(obj[prop.key]);
+        return t === Object(C_Users_davyc_OneDrive_Documentos_Workspace_vue_advanced_chat_davy_node_modules_babel_runtime_helpers_esm_typeof_js__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(obj[prop.key]);
       })) {
         validType = true;
       }
@@ -7100,7 +7100,7 @@ function partcipantsValidation(obj) {
   var validate = function validate(obj, props) {
     return props.every(function (prop) {
       var validType = prop.type.find(function (t) {
-        return t === Object(D_Zeeps_vue_advanced_chat_node_modules_babel_runtime_helpers_esm_typeof_js__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(obj[prop.key]);
+        return t === Object(C_Users_davyc_OneDrive_Documentos_Workspace_vue_advanced_chat_davy_node_modules_babel_runtime_helpers_esm_typeof_js__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(obj[prop.key]);
       });
       return validType && checkObjectValid(obj, prop.key);
     });
@@ -7123,7 +7123,7 @@ function messagesValidation(obj) {
   var validate = function validate(obj, props) {
     return props.every(function (prop) {
       var validType = prop.type.find(function (t) {
-        return t === Object(D_Zeeps_vue_advanced_chat_node_modules_babel_runtime_helpers_esm_typeof_js__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(obj[prop.key]);
+        return t === Object(C_Users_davyc_OneDrive_Documentos_Workspace_vue_advanced_chat_davy_node_modules_babel_runtime_helpers_esm_typeof_js__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(obj[prop.key]);
       });
       return validType && checkObjectValid(obj, prop.key);
     });
@@ -27128,7 +27128,7 @@ function compileToJSON(str, pseudoMarkdown) {
     if (str.replace(/\s/g, '').length === _char.length * 2) {
       return [str];
     }
-    var match = _strRight.match(new RegExp('^(' + (pseudoMarkdown[_char].allowed_chars || '.') + '*' + (pseudoMarkdown[_char].end ? '?' : '') + ')' + (pseudoMarkdown[_char].end ? '(' + pseudoMarkdown[_char].end + ')' : ''), 'm'));
+    var match = _strRight.match(new RegExp('^(' + (pseudoMarkdown[_char].allowed_chars || '.') + '*' + (pseudoMarkdown[_char].end ? '?' : '') + ')' + (pseudoMarkdown[_char].end ? '(' + pseudoMarkdown[_char].end + ')' : '') + '(?![^\\s])', 'm'));
     if (!match || !match[1]) {
       _strLeft = _strLeft + _char;
       result.push(_strLeft);
@@ -27549,8 +27549,9 @@ function filterMultipleItems(items) {
       if (typeof v[prop] === 'string') {
         if (startsWith) {
           return formatString(v[prop]).startsWith(formatString(val));
+        } else {
+          return formatString(v[prop]).includes(formatString(val));
         }
-        return formatString(v[prop]).includes(formatString(val));
       } else if (typeof v[prop] === 'number') {
         return String(v[prop]).startsWith(formatString(val));
       } else {
