@@ -58,6 +58,12 @@
 						@mouseover="onHoverMessage"
 						@mouseleave="onLeaveMessage"
 					>
+						<div class="vac-share-message" v-if="message.isForward">
+							<svg-icon name="share" class="share-icon" />
+							<span class="vac-share-text">
+								Encaminhada
+							</span>
+						</div>
 						<div
 							v-if="showUsername"
 							class="vac-text-username"
