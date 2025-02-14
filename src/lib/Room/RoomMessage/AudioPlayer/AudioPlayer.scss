@@ -8,6 +8,31 @@
 	}
 }
 
+.audio-speed-selector {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.speed-circle {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: #267129; 
+  color: white;
+  font-weight: bold;
+  font-size: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.speed-circle:hover {
+  background-color: #45a049;
+}
+
 @media only screen and (max-width: 768px) {
 	.vac-audio-player {
 		margin: 4px 0 0px;
