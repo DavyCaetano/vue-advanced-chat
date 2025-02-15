@@ -60,9 +60,7 @@
 					>
 						<div class="vac-share-message" v-if="message.isForward">
 							<svg-icon name="share" class="share-icon" />
-							<span class="vac-share-text">
-								Encaminhada
-							</span>
+							<span class="vac-share-text">{{ textMessages.FORWARD_MESSAGE }}</span>
 						</div>
 						<div
 							v-if="showUsername"
