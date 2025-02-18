@@ -2060,7 +2060,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "roomsValidation", function() { return roomsValidation; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "partcipantsValidation", function() { return partcipantsValidation; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "messagesValidation", function() { return messagesValidation; });
-/* harmony import */ var H_projetos_zeeps_vue_advanced_chat_node_modules_babel_runtime_helpers_esm_typeof_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("53ca");
+/* harmony import */ var C_Users_davyc_OneDrive_Documentos_Workspace_vue_advanced_chat_davy_node_modules_babel_runtime_helpers_esm_typeof_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("53ca");
 /* harmony import */ var core_js_modules_es_error_cause_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("d9e2");
 /* harmony import */ var core_js_modules_es_error_cause_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_error_cause_js__WEBPACK_IMPORTED_MODULE_1__);
 
@@ -2082,7 +2082,7 @@ function roomsValidation(obj) {
       if (prop.type[0] === 'array' && Array.isArray(obj[prop.key])) {
         validType = true;
       } else if (prop.type.find(function (t) {
-        return t === Object(H_projetos_zeeps_vue_advanced_chat_node_modules_babel_runtime_helpers_esm_typeof_js__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(obj[prop.key]);
+        return t === Object(C_Users_davyc_OneDrive_Documentos_Workspace_vue_advanced_chat_davy_node_modules_babel_runtime_helpers_esm_typeof_js__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(obj[prop.key]);
       })) {
         validType = true;
       }
@@ -2104,7 +2104,7 @@ function partcipantsValidation(obj) {
   var validate = function validate(obj, props) {
     return props.every(function (prop) {
       var validType = prop.type.find(function (t) {
-        return t === Object(H_projetos_zeeps_vue_advanced_chat_node_modules_babel_runtime_helpers_esm_typeof_js__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(obj[prop.key]);
+        return t === Object(C_Users_davyc_OneDrive_Documentos_Workspace_vue_advanced_chat_davy_node_modules_babel_runtime_helpers_esm_typeof_js__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(obj[prop.key]);
       });
       return validType && checkObjectValid(obj, prop.key);
     });
@@ -2127,7 +2127,7 @@ function messagesValidation(obj) {
   var validate = function validate(obj, props) {
     return props.every(function (prop) {
       var validType = prop.type.find(function (t) {
-        return t === Object(H_projetos_zeeps_vue_advanced_chat_node_modules_babel_runtime_helpers_esm_typeof_js__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(obj[prop.key]);
+        return t === Object(C_Users_davyc_OneDrive_Documentos_Workspace_vue_advanced_chat_davy_node_modules_babel_runtime_helpers_esm_typeof_js__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(obj[prop.key]);
       });
       return validType && checkObjectValid(obj, prop.key);
     });
@@ -13138,13 +13138,20 @@ var RoomMessageReplyvue_type_template_id_7656bb92_staticRenderFns = [];
 
 // CONCATENATED MODULE: ./src/lib/Room/RoomFooter/RoomMessageReply/RoomMessageReply.vue?vue&type=template&id=7656bb92&
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"9de1f66a-vue-loader-template"}!./node_modules/cache-loader/dist/cjs.js??ref--13-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!./node_modules/cache-loader/dist/cjs.js??ref--1-0!./node_modules/vue-loader/lib??vue-loader-options!./src/lib/Room/RoomMessage/AudioPlayer/AudioPlayer.vue?vue&type=template&id=3aaf1f1e&
-var AudioPlayervue_type_template_id_3aaf1f1e_render = function render() {
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"9de1f66a-vue-loader-template"}!./node_modules/cache-loader/dist/cjs.js??ref--13-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!./node_modules/cache-loader/dist/cjs.js??ref--1-0!./node_modules/vue-loader/lib??vue-loader-options!./src/lib/Room/RoomMessage/AudioPlayer/AudioPlayer.vue?vue&type=template&id=a5f13cea&
+var AudioPlayervue_type_template_id_a5f13cea_render = function render() {
   var _vm = this,
     _c = _vm._self._c;
   return _c('div', [_c('div', {
     staticClass: "vac-audio-player"
+  }, [_vm.isPlaying ? _c('div', {
+    staticClass: "audio-speed-selector"
   }, [_c('div', {
+    staticClass: "speed-circle",
+    on: {
+      "click": _vm.changePlaybackRate
+    }
+  }, [_c('span', [_vm._v(_vm._s(_vm.playbackRate) + "x")])])]) : _vm._e(), _c('div', {
     staticClass: "vac-svg-button",
     on: {
       "click": _vm.playback
@@ -13179,9 +13186,9 @@ var AudioPlayervue_type_template_id_3aaf1f1e_render = function render() {
     }
   })], 1)]);
 };
-var AudioPlayervue_type_template_id_3aaf1f1e_staticRenderFns = [];
+var AudioPlayervue_type_template_id_a5f13cea_staticRenderFns = [];
 
-// CONCATENATED MODULE: ./src/lib/Room/RoomMessage/AudioPlayer/AudioPlayer.vue?vue&type=template&id=3aaf1f1e&
+// CONCATENATED MODULE: ./src/lib/Room/RoomMessage/AudioPlayer/AudioPlayer.vue?vue&type=template&id=a5f13cea&
 
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"9de1f66a-vue-loader-template"}!./node_modules/cache-loader/dist/cjs.js??ref--13-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!./node_modules/cache-loader/dist/cjs.js??ref--1-0!./node_modules/vue-loader/lib??vue-loader-options!./src/lib/Room/RoomMessage/AudioPlayer/AudioControl/AudioControl.vue?vue&type=template&id=1721db79&
 var AudioControlvue_type_template_id_1721db79_render = function render() {
@@ -13323,7 +13330,8 @@ var AudioControl_component = normalizeComponent(
       isPlaying: false,
       duration: this.convertTimeMMSS(0),
       playedTime: this.convertTimeMMSS(0),
-      progress: 0
+      progress: 0,
+      playbackRate: 1
     };
   },
   computed: {
@@ -13356,6 +13364,7 @@ var AudioControl_component = normalizeComponent(
     playback: function playback() {
       var _this2 = this;
       if (this.messageSelectionEnabled || !this.audioSource) return;
+      this.checkPlaybackRate();
       if (this.isPlaying) this.player.pause();else setTimeout(function () {
         return _this2.player.play();
       });
@@ -13379,6 +13388,17 @@ var AudioControl_component = normalizeComponent(
     },
     updateProgressTime: function updateProgressTime() {
       this.$emit('update-progress-time', this.progress > 1 ? this.playedTime : this.duration);
+    },
+    checkPlaybackRate: function checkPlaybackRate() {
+      var localStoragePlaybackRate = localStorage.getItem('audioPlaybackRate');
+      this.playbackRate = localStoragePlaybackRate ? Number(localStoragePlaybackRate) : 1;
+      this.player.playbackRate = this.playbackRate;
+    },
+    changePlaybackRate: function changePlaybackRate() {
+      var nextPlaybackRate = this.playbackRate === 1 ? 1.5 : this.playbackRate === 1.5 ? 2 : 1;
+      this.playbackRate = nextPlaybackRate;
+      localStorage.setItem('audioPlaybackRate', this.playbackRate);
+      this.player.playbackRate = this.playbackRate;
     }
   }
 });
@@ -13394,8 +13414,8 @@ var AudioControl_component = normalizeComponent(
 
 var AudioPlayer_component = normalizeComponent(
   AudioPlayer_AudioPlayervue_type_script_lang_js_,
-  AudioPlayervue_type_template_id_3aaf1f1e_render,
-  AudioPlayervue_type_template_id_3aaf1f1e_staticRenderFns,
+  AudioPlayervue_type_template_id_a5f13cea_render,
+  AudioPlayervue_type_template_id_a5f13cea_staticRenderFns,
   false,
   null,
   null,
