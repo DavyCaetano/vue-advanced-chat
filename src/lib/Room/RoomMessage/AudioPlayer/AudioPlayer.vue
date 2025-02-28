@@ -1,6 +1,11 @@
 <template>
 	<div>
 		<div class="vac-audio-player">
+			<div v-if="isPlaying" class="audio-speed-selector">
+				<div class="speed-circle" @click="changePlaybackRate">
+					<span>{{ playbackRate }}x</span>
+				</div>
+			</div>
 			<div class="vac-svg-button" @click="playback">
 				<slot v-if="isPlaying" name="audio-pause-icon">
 					<svg-icon name="audio-pause" />
@@ -46,7 +51,8 @@ export default {
 			isPlaying: false,
 			duration: this.convertTimeMMSS(0),
 			playedTime: this.convertTimeMMSS(0),
-			progress: 0
+			progress: 0,
+			playbackRate: 1
 		}
 	},
 
@@ -84,6 +90,7 @@ export default {
 		playback() {
 			if (this.messageSelectionEnabled || !this.audioSource) return
 
+			this.checkPlaybackRate()
 			if (this.isPlaying) this.player.pause()
 			else setTimeout(() => this.player.play())
 
@@ -111,6 +118,18 @@ export default {
 				'update-progress-time',
 				this.progress > 1 ? this.playedTime : this.duration
 			)
+		},
+		checkPlaybackRate() {
+			const localStoragePlaybackRate = localStorage.getItem('audioPlaybackRate')
+			this.playbackRate = localStoragePlaybackRate ? Number(localStoragePlaybackRate) : 1
+			this.player.playbackRate = this.playbackRate
+		},
+		changePlaybackRate() {
+			const nextPlaybackRate = this.playbackRate === 1 ? 1.5
+															: this.playbackRate === 1.5 ? 2 : 1
+			this.playbackRate = nextPlaybackRate
+			localStorage.setItem('audioPlaybackRate', this.playbackRate)
+			this.player.playbackRate = this.playbackRate
 		}
 	}
 }

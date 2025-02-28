@@ -133,6 +133,24 @@
 		will-change: box-shadow;
 		box-shadow: 0 1px 1px -1px rgba(0, 0, 0, 0.1),
 			0 1px 1px -1px rgba(0, 0, 0, 0.11), 0 1px 2px -1px rgba(0, 0, 0, 0.11);
+
+			.vac-share-message{
+				display: flex; 
+				flex-direction: row;	
+			}
+
+			.share-icon{
+				width: 10px;
+				height: 10px;  
+				margin-top: 3px;
+				fill: #455247;
+			}
+
+			.vac-share-text{
+				font-size: 11px;
+				margin-left: 3px;
+				font-style: italic;
+			}
 	}
 
 	.vac-message-highlight {
