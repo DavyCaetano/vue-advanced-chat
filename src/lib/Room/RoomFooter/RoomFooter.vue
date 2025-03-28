@@ -57,7 +57,7 @@
 			class="vac-box-footer"
 			:class="{ 'vac-box-footer-border': !files.length }"
 		>
-			<div v-show="showAudio && !files.length" class="vac-icon-textarea-left">
+			<div v-show="showAudio && !files.length" class="vac-icon-textarea-left"> 
 				<template v-if="isRecording">
 					<div class="vac-svg-button vac-icon-audio-stop" @click="stopRecorder">
 						<slot name="audio-stop-icon">
