@@ -155,9 +155,16 @@ export default {
 					initialContent.indexOf(secondTag, index)
 				)
 
-				const user = this.users.find(user => user._id === userId)
+				const user = this.users.find(user => {
+					const usr = user._id === userId
+					if (usr) return usr
+					const inverse = user._id.split('').reverse().join('')
+					const inversed = userId.split('').reverse().join('')
 
-				content = content.replaceAll(userId, `@${user?.username || 'unknown'}`)
+					return inverse.substring(0, 8) === inversed.substring(0, 8)
+				})
+
+				content = content.replaceAll(userId, `@${user?.username || 'Desconhecido'}`)
 			})
 
 			return content

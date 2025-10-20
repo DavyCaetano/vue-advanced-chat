@@ -630,11 +630,18 @@ export default {
 					initialContent.indexOf(secondTag, index)
 				)
 
-				const user = this.room.users.find(user => user._id === userId)
+				const user = this.users.find(user => {
+					const usr = user._id === userId
+					if (usr) return usr
+					const inverse = user._id.split('').reverse().join('')
+					const inversed = userId.split('').reverse().join('')
+
+					return inverse.substring(0, 8) === inversed.substring(0, 8)
+				})
 
 				messageContent = messageContent.replace(
 					`${firstTag}${userId}${secondTag}`,
-					`@${user?.username || 'unknown'}`
+					`@${user?.username || 'Desconhecido'}`
 				)
 
 				this.selectUserTag(user, true)
