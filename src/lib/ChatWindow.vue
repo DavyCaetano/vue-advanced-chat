@@ -79,6 +79,8 @@
 				@open-file="openFile"
 				@open-user-tag="openUserTag"
 				@open-failed-message="openFailedMessage"
+				@retry-audio-transcription="retryAudioTranscription"
+				@request-audio-transcription="requestAudioTranscription"
 				@menu-action-handler="menuActionHandler"
 				@message-action-handler="messageActionHandler"
 				@message-selection-action-handler="messageSelectionActionHandler"
@@ -219,6 +221,8 @@ export default {
 		'open-file',
 		'open-user-tag',
 		'open-failed-message',
+		'retry-audio-transcription',
+		'request-audio-transcription',
 		'menu-action-handler',
 		'message-action-handler',
 		'send-message-reaction',
@@ -396,6 +400,18 @@ export default {
 		openFailedMessage({ message }) {
 			this.$emit('open-failed-message', {
 				message,
+				roomId: this.room.roomId
+			})
+		},
+		retryAudioTranscription(ev) {
+			this.$emit('retry-audio-transcription', {
+				...ev,
+				roomId: this.room.roomId
+			})
+		},
+		requestAudioTranscription(ev) {
+			this.$emit('request-audio-transcription', {
+				...ev,
 				roomId: this.room.roomId
 			})
 		},

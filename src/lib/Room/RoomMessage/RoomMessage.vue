@@ -136,6 +136,59 @@
 							<div v-if="!message.deleted" class="vac-progress-time">
 								{{ progressTime }}
 							</div>
+
+							<div
+								v-if="showAudioTranscriptionCompleted"
+								class="vac-audio-transcription"
+							>
+								<button
+									type="button"
+									class="vac-audio-transcription-button"
+									@click.stop="audioTranscriptionExpanded = !audioTranscriptionExpanded"
+								>
+									{{ audioTranscriptionExpanded ? 'Ocultar transcrição' : 'Ver transcrição' }}
+								</button>
+								<div
+									v-if="audioTranscriptionExpanded"
+									class="vac-audio-transcription-text"
+								>
+									{{ audioTranscription }}
+								</div>
+							</div>
+
+							<div
+								v-else-if="showAudioTranscriptionPending"
+								class="vac-audio-transcription-status"
+							>
+								{{ audioTranscriptionPendingText }}
+							</div>
+
+							<div
+								v-else-if="showAudioTranscriptionFailed"
+								class="vac-audio-transcription-status vac-audio-transcription-failed"
+							>
+								<span>Transcrição falhou</span>
+								<button
+									type="button"
+									class="vac-audio-transcription-button"
+									@click.stop="$emit('retry-audio-transcription', { message })"
+								>
+									Tentar novamente
+								</button>
+							</div>
+
+							<div
+								v-else-if="showAudioTranscriptionCanRequest"
+								class="vac-audio-transcription-status"
+							>
+								<button
+									type="button"
+									class="vac-audio-transcription-button"
+									@click.stop="$emit('request-audio-transcription', { message })"
+								>
+									Transcrever
+								</button>
+							</div>
 						</template>
 
 						<div class="vac-text-timestamp">
@@ -265,6 +318,8 @@ export default {
 		'open-file',
 		'open-user-tag',
 		'open-failed-message',
+		'retry-audio-transcription',
+		'request-audio-transcription',
 		'message-action-handler',
 		'send-message-reaction',
 		'select-message',
@@ -279,7 +334,8 @@ export default {
 			emojiOpened: false,
 			newMessage: {},
 			progressTime: '- : -',
-			hoverAudioProgress: false
+			hoverAudioProgress: false,
+			audioTranscriptionExpanded: false
 		}
 	},
 
@@ -314,6 +370,35 @@ export default {
 		},
 		isAudio() {
 			return this.message.files?.some(file => isAudioFile(file))
+		},
+		audioFile() {
+			return this.message.files?.find(file => isAudioFile(file)) || this.message.files?.[0] || {}
+		},
+		audioTranscription() {
+			return this.message.audio_transcription || this.audioFile.audio_transcription || ''
+		},
+		audioTranscriptionStatus() {
+			return this.message.audio_transcription_status || this.audioFile.audio_transcription_status || ''
+		},
+		audioTranscriptionCanRequest() {
+			return Boolean(this.message.audio_transcription_can_request || this.audioFile.audio_transcription_can_request)
+		},
+		audioTranscriptionPendingText() {
+			return this.audioTranscriptionStatus === 'queued'
+				? 'Transcrição na fila'
+				: 'Transcrição em processamento'
+		},
+		showAudioTranscriptionCompleted() {
+			return this.audioTranscriptionStatus === 'completed' && !!this.audioTranscription
+		},
+		showAudioTranscriptionPending() {
+			return ['queued', 'processing'].includes(this.audioTranscriptionStatus)
+		},
+		showAudioTranscriptionFailed() {
+			return this.audioTranscriptionStatus === 'failed'
+		},
+		showAudioTranscriptionCanRequest() {
+			return !this.audioTranscriptionStatus && this.audioTranscriptionCanRequest
 		},
 		isCheckmarkVisible() {
 			return (

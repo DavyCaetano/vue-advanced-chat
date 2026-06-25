@@ -93,6 +93,8 @@
 								@open-file="openFile"
 								@open-user-tag="openUserTag"
 								@open-failed-message="$emit('open-failed-message', $event)"
+								@retry-audio-transcription="$emit('retry-audio-transcription', $event)"
+								@request-audio-transcription="$emit('request-audio-transcription', $event)"
 								@send-message-reaction="sendMessageReaction"
 								@select-message="selectMessage"
 								@unselect-message="unselectMessage"
@@ -231,6 +233,8 @@ export default {
 		'open-file',
 		'open-user-tag',
 		'open-failed-message',
+		'retry-audio-transcription',
+		'request-audio-transcription',
 		'textarea-action-handler'
 	],
 

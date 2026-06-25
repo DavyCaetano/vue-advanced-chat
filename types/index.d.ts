@@ -25,6 +25,13 @@ export interface MessageFile {
 	audio?: boolean
 	duration?: number
 	progress?: number
+	audio_transcription?: string
+	audio_transcription_status?: string
+	audio_transcription_error?: string
+	audio_transcription_duration_seconds?: number
+	audio_transcription_started_at?: string
+	audio_transcription_finished_at?: string
+	audio_transcription_attempts?: number
 }
 
 export interface LastMessage {
@@ -80,6 +87,13 @@ export interface Message {
 	disableActions?: boolean
 	disableReactions?: boolean
 	files?: MessageFile[]
+	audio_transcription?: string
+	audio_transcription_status?: string
+	audio_transcription_error?: string
+	audio_transcription_duration_seconds?: number
+	audio_transcription_started_at?: string
+	audio_transcription_finished_at?: string
+	audio_transcription_attempts?: number
 	reactions?: MessageReactions
 	replyMessage?: Message
 }

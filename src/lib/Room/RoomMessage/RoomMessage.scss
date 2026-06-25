@@ -219,6 +219,45 @@
 		font-size: 12px;
 	}
 
+	.vac-audio-transcription,
+	.vac-audio-transcription-status {
+		clear: both;
+		margin: 6px 0 2px 40px;
+		font-size: 12px;
+		line-height: 1.35;
+		white-space: normal;
+	}
+
+	.vac-audio-transcription-status {
+		color: var(--chat-message-color-timestamp);
+	}
+
+	.vac-audio-transcription-failed {
+		display: flex;
+		gap: 8px;
+		align-items: center;
+	}
+
+	.vac-audio-transcription-button {
+		border: 0;
+		padding: 0;
+		font: inherit;
+		font-size: 12px;
+		font-weight: 600;
+		background: transparent;
+		color: var(--chat-message-color-username);
+		cursor: pointer;
+	}
+
+	.vac-audio-transcription-text {
+		margin-top: 6px;
+		padding: 8px;
+		border-radius: 6px;
+		background: rgba(0, 0, 0, 0.04);
+		color: var(--chat-message-color);
+		white-space: pre-wrap;
+	}
+
 	.vac-icon-edited {
 		-webkit-box-align: center;
 		align-items: center;
@@ -293,6 +332,11 @@
 		}
 
 		.vac-progress-time {
+			margin-left: 37px;
+		}
+
+		.vac-audio-transcription,
+		.vac-audio-transcription-status {
 			margin-left: 37px;
 		}
 	}
