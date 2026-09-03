@@ -42,8 +42,11 @@
 							/>
 						</slot>
 					</span>
+					<div v-if="hasDraft" class="vac-text-ellipsis vac-text-draft">
+						{{ textMessages.DRAFT_MESSAGE }} {{ room.draft }}
+					</div>
 					<div
-						v-if="room.lastMessage && !room.lastMessage.deleted && isAudio"
+						v-else-if="room.lastMessage && !room.lastMessage.deleted && isAudio"
 						class="vac-text-ellipsis"
 					>
 						<slot name="microphone-icon">
@@ -192,8 +195,12 @@ export default {
 		typingUsers() {
 			return typingText(this.room, this.currentUserId, this.textMessages)
 		},
+		hasDraft() {
+			return !!this.room.draft && !this.typingUsers
+		},
 		isMessageCheckmarkVisible() {
 			return (
+				!this.hasDraft &&
 				!this.typingUsers &&
 				this.room.lastMessage &&
 				!this.room.lastMessage.deleted &&

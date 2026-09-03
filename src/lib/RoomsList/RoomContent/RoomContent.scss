@@ -52,6 +52,11 @@
 		font-weight: 500;
 	}
 
+	.vac-text-draft {
+		color: var(--chat-room-color-draft);
+		font-style: italic;
+	}
+
 	.vac-icon-check {
 		display: flex;
 		vertical-align: middle;
