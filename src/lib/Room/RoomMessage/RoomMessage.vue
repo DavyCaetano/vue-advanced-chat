@@ -91,6 +91,24 @@
 							<span>{{ textMessages.MESSAGE_DELETED }}</span>
 						</div>
 
+						<slot
+							v-else-if="message.isLocation"
+							name="message-location"
+							v-bind="{ message }"
+						>
+							<format-message
+								:content="message.content"
+								:users="roomUsers"
+								:text-formatting="textFormatting"
+								:link-options="linkOptions"
+								@open-user-tag="openUserTag"
+							>
+								<template v-for="(i, name) in $scopedSlots" #[name]="data">
+									<slot :name="name" v-bind="data" />
+								</template>
+							</format-message>
+						</slot>
+
 						<format-message
 							v-else-if="!message.files || !message.files.length"
 							:content="message.content"

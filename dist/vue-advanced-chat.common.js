@@ -27954,8 +27954,8 @@ var RoomFooter_component = normalizeComponent(
 )
 
 /* harmony default export */ var RoomFooter = (RoomFooter_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"9de1f66a-vue-loader-template"}!./node_modules/cache-loader/dist/cjs.js??ref--13-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!./node_modules/cache-loader/dist/cjs.js??ref--1-0!./node_modules/vue-loader/lib??vue-loader-options!./src/lib/Room/RoomMessage/RoomMessage.vue?vue&type=template&id=394aa396&
-var RoomMessagevue_type_template_id_394aa396_render = function render() {
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"9de1f66a-vue-loader-template"}!./node_modules/cache-loader/dist/cjs.js??ref--13-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!./node_modules/cache-loader/dist/cjs.js??ref--1-0!./node_modules/vue-loader/lib??vue-loader-options!./src/lib/Room/RoomMessage/RoomMessage.vue?vue&type=template&id=363506c4&
+var RoomMessagevue_type_template_id_363506c4_render = function render() {
   var _vm = this,
     _c = _vm._self._c;
   return _c('div', {
@@ -28062,7 +28062,29 @@ var RoomMessagevue_type_template_id_394aa396_render = function render() {
           "name": "deleted"
         }
       })];
-    }), _c('span', [_vm._v(_vm._s(_vm.textMessages.MESSAGE_DELETED))])], 2) : !_vm.message.files || !_vm.message.files.length ? _c('format-message', {
+    }), _c('span', [_vm._v(_vm._s(_vm.textMessages.MESSAGE_DELETED))])], 2) : _vm.message.isLocation ? _vm._t("message-location", function () {
+      return [_c('format-message', {
+        attrs: {
+          "content": _vm.message.content,
+          "users": _vm.roomUsers,
+          "text-formatting": _vm.textFormatting,
+          "link-options": _vm.linkOptions
+        },
+        on: {
+          "open-user-tag": _vm.openUserTag
+        },
+        scopedSlots: _vm._u([_vm._l(_vm.$scopedSlots, function (i, name) {
+          return {
+            key: name,
+            fn: function fn(data) {
+              return [_vm._t(name, null, null, data)];
+            }
+          };
+        })], null, true)
+      })];
+    }, null, {
+      message: _vm.message
+    }) : !_vm.message.files || !_vm.message.files.length ? _c('format-message', {
       attrs: {
         "content": _vm.message.content,
         "users": _vm.roomUsers,
@@ -28261,9 +28283,9 @@ var RoomMessagevue_type_template_id_394aa396_render = function render() {
     message: _vm.message
   })], 2)]);
 };
-var RoomMessagevue_type_template_id_394aa396_staticRenderFns = [];
+var RoomMessagevue_type_template_id_363506c4_staticRenderFns = [];
 
-// CONCATENATED MODULE: ./src/lib/Room/RoomMessage/RoomMessage.vue?vue&type=template&id=394aa396&
+// CONCATENATED MODULE: ./src/lib/Room/RoomMessage/RoomMessage.vue?vue&type=template&id=363506c4&
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.reduce.js
 var es_array_reduce = __webpack_require__("13d5");
@@ -29562,8 +29584,8 @@ var _require2 = __webpack_require__("bd43"),
 
 var RoomMessage_component = normalizeComponent(
   RoomMessage_RoomMessagevue_type_script_lang_js_,
-  RoomMessagevue_type_template_id_394aa396_render,
-  RoomMessagevue_type_template_id_394aa396_staticRenderFns,
+  RoomMessagevue_type_template_id_363506c4_render,
+  RoomMessagevue_type_template_id_363506c4_staticRenderFns,
   false,
   null,
   null,
